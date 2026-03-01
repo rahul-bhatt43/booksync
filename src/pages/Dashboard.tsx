@@ -30,7 +30,7 @@ export const Dashboard: React.FC = () => {
 
     if (isLoading) {
         return (
-            <div className="space-y-8 p-8 animate-in fade-in-50 duration-500">
+            <div className="space-y-8 p-8 px-4 animate-in fade-in-50 duration-500">
                 <div className="flex justify-between flex-wrap gap-4 items-center">
                     <div>
                         <Skeleton className="h-9 w-64 mb-2" />
@@ -64,7 +64,7 @@ export const Dashboard: React.FC = () => {
     }
 
     return (
-        <div className="space-y-8 p-8 animate-in fade-in-50 duration-500">
+        <div className="space-y-8 p-8 px-4 animate-in fade-in-50 duration-500">
             <div className="flex justify-between flex-wrap gap-4 items-center">
                 <div>
                     <h2 className="text-3xl font-bold tracking-tight">Dashboard Overview</h2>

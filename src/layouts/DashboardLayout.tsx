@@ -130,7 +130,7 @@ export const DashboardLayout: React.FC = () => {
                 </header>
 
                 {/* Page Content */}
-                <main className="flex-1 overflow-auto p-4 md:p-6 lg:p-8">
+                <main className="flex-1 overflow-auto p-2 md:p-6 lg:p-8">
                     <div className="mx-auto w-full max-w-7xl animate-in fade-in-50 duration-500">
                         <Outlet />
                     </div>
