@@ -116,7 +116,7 @@ export const AudiobookForm: React.FC<AudiobookFormProps> = ({ initialData, isEdi
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 space-y-8 animate-in fade-in-50 duration-500">
+        <div className="max-w-4xl mx-auto p-8 px-4 space-y-8 animate-in fade-in-50 duration-500">
             <div className="flex items-center gap-4">
                 <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
                     <ArrowLeft className="h-4 w-4" />
@@ -252,8 +252,8 @@ export const AudiobookForm: React.FC<AudiobookFormProps> = ({ initialData, isEdi
 
             {/* Inline Creation Modal */}
             <Dialog open={!!modalOpen} onOpenChange={(open) => !open && setModalOpen(null)}>
-                <DialogContent>
-                    <DialogHeader>
+                <DialogContent className="w-[95vw] max-w-lg rounded-xl sm:rounded-lg">
+                    <DialogHeader className="text-left sm:text-center">
                         <DialogTitle>Create New {modalOpen?.charAt(0).toUpperCase()}{modalOpen?.slice(1)}</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4 py-4">
@@ -266,9 +266,10 @@ export const AudiobookForm: React.FC<AudiobookFormProps> = ({ initialData, isEdi
                             <Textarea value={modalDescValue} onChange={(e) => setModalDescValue(e.target.value)} placeholder="Details..." />
                         </div>
                     </div>
-                    <DialogFooter>
-                        <Button variant="outline" onClick={() => setModalOpen(null)}>Cancel</Button>
+                    <DialogFooter className="flex-col sm:flex-row gap-2 sm:gap-0">
+                        <Button variant="outline" className="w-full sm:w-auto" onClick={() => setModalOpen(null)}>Cancel</Button>
                         <Button
+                            className="w-full sm:w-auto"
                             disabled={!modalInputValue || createEntityMutation.isPending}
                             onClick={() => createEntityMutation.mutate({ type: modalOpen, name: modalInputValue, description: modalDescValue })}
                         >

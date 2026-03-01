@@ -5,6 +5,7 @@ export const ROUTE_PERMISSIONS = {
     authorsManagement: 'authorsManagement',
     narratorsManagement: 'narratorsManagement',
     categoriesManagement: 'categoriesManagement',
+    appLinksManagement: 'appLinksManagement',
 } as const;
 
 export type RoutePermission = keyof typeof ROUTE_PERMISSIONS;
@@ -15,7 +16,8 @@ export const ROLE_PERMISSIONS: Record<string, RoutePermission[]> = {
         'audiobooksManagement',
         'authorsManagement',
         'narratorsManagement',
-        'categoriesManagement'
+        'categoriesManagement',
+        'appLinksManagement'
     ],
     user: [
         'user',
@@ -30,7 +32,8 @@ export const CORRECT_ROLE_PERMISSIONS: Record<string, RoutePermission[]> = {
         'audiobooksManagement',
         'authorsManagement',
         'narratorsManagement',
-        'categoriesManagement'
+        'categoriesManagement',
+        'appLinksManagement'
     ],
     user: [
         'user'

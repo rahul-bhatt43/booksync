@@ -73,6 +73,25 @@ export const getActiveAppLinks = async (): Promise<AppLink[]> => {
     return data;
 };
 
+export const getAppLinks = async (): Promise<AppLink[]> => {
+    const { data } = await authApiClient.get("/app-links");
+    return data;
+};
+
+export const createAppLink = async (payload: Partial<AppLink>): Promise<AppLink> => {
+    const { data } = await authApiClient.post("/app-links", payload);
+    return data;
+};
+
+export const updateAppLink = async (id: string, payload: Partial<AppLink>): Promise<AppLink> => {
+    const { data } = await authApiClient.put(`/app-links/${id}`, payload);
+    return data;
+};
+
+export const deleteAppLink = async (id: string): Promise<void> => {
+    await authApiClient.delete(`/app-links/${id}`);
+};
+
 // Stats Service
 export const getDashboardStats = async (): Promise<DashboardStats> => {
     const { data } = await authApiClient.get("/admin/stats");

@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { BookHeadphones, LayoutDashboard, User, LogOut, BookOpen, Mic2, Tag, Menu, Bell } from "lucide-react";
+import { BookHeadphones, LayoutDashboard, User, LogOut, BookOpen, Mic2, Tag, Menu, Bell, Link as LinkIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const DashboardLayout: React.FC = () => {
@@ -14,6 +14,7 @@ export const DashboardLayout: React.FC = () => {
 
     const navItems = [
         { name: "Overview", href: "/dashboard", icon: LayoutDashboard },
+        { name: "App Links", href: "/dashboard/app-links", icon: LinkIcon },
         { name: "Audiobooks", href: "/dashboard/audiobooks", icon: BookHeadphones },
         { name: "Categories", href: "/dashboard/categories", icon: Tag },
         { name: "Authors", href: "/dashboard/authors", icon: BookOpen },

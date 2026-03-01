@@ -30,6 +30,7 @@ import Narrators from "./pages/dashboard/narrators/index";
 import NarratorPage from "./pages/dashboard/narrators/NarratorPage";
 import Categories from "./pages/dashboard/categories/index";
 import CategoryPage from "./pages/dashboard/categories/CategoryPage";
+import AppLinks from "./pages/dashboard/app-links";
 
 // User Pages
 import UserDiscover from "./pages/user/index";
@@ -167,6 +168,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute permission={ROUTE_PERMISSIONS.categoriesManagement}>
                 <CategoryPage />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: "app-links",
+            element: (
+              <ProtectedRoute permission={ROUTE_PERMISSIONS.appLinksManagement}>
+                <AppLinks />
               </ProtectedRoute>
             ),
           }
