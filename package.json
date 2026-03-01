@@ -1,5 +1,5 @@
 {
-  "name": "orgit-vite-app",
+  "name": "book-sync",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -43,6 +43,7 @@
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.556.0",
     "react": "^19.2.0",
+    "react-day-picker": "^9.14.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.68.0",
     "react-router": "^7.10.1",

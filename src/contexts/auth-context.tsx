@@ -9,28 +9,24 @@ import { useMutation } from "@tanstack/react-query";
 import { apiClient, createApiClient } from "@/lib/api-client";
 
 export interface User {
-  id: string;
+  id?: string;
   _id: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  role: "ADMIN" | "USER";
-  organizationId: string | null;
-  status: "ACTIVE" | "INACTIVE";
-  createdAt: string;
-  updatedAt: string;
+  name: string;
+  role: "admin" | "user";
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
 }
 
 export interface AuthResponse {
   user: User;
-  accessToken: string;
-  refreshToken: string;
+  token: string;
 }
 
 interface AuthContextType {
   user: User | null;
-  accessToken: string | null;
-  refreshToken: string | null;
+  token: string | null;
   isLoading: boolean;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<AuthResponse>;
@@ -38,8 +34,7 @@ interface AuthContextType {
   register: (
     email: string,
     password: string,
-    firstName: string,
-    lastName: string
+    name: string,
   ) => Promise<AuthResponse>;
   forgotPassword: (email: string) => Promise<{ message: string }>;
   resetPassword: (
@@ -61,46 +56,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-  const [refreshToken, setRefreshToken] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   // Initialize from localStorage
   useEffect(() => {
-    const storedAccessToken = localStorage.getItem("accessToken");
-    const storedRefreshToken = localStorage.getItem("refreshToken");
+    const storedToken = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
 
-    if (storedAccessToken && storedUser) {
-      setAccessToken(storedAccessToken);
-      setRefreshToken(storedRefreshToken);
+    if (storedToken && storedUser) {
+      setToken(storedToken);
       setUser(JSON.parse(storedUser));
     }
     setIsLoading(false);
   }, []);
 
   const saveTokens = useCallback(
-    (accessToken: string, refreshToken: string, user: User) => {
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
+    (token: string, user: User) => {
+      localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-      setAccessToken(accessToken);
-      setRefreshToken(refreshToken);
+      setToken(token);
       setUser(user);
     },
     []
   );
 
-  const getAccessToken = useCallback(() => accessToken, [accessToken]);
-  const getOrganizationId = useCallback(
-    () => user?.organizationId || null,
-    [user?.organizationId]
-  );
+  const getAccessToken = useCallback(() => token, [token]);
 
-  // Create API client with organization context
+  // Create API client 
   const getAuthenticatedApiClient = useCallback(() => {
-    return createApiClient({withAuth: true, withOrganization: true});
-  }, [getAccessToken, getOrganizationId]);
+    return createApiClient({ withAuth: true });
+  }, [getAccessToken]);
 
   const loginMutation = useMutation({
     mutationFn: async (credentials: { email: string; password: string }) => {
@@ -111,7 +97,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       return response.data;
     },
     onSuccess: (data) => {
-      saveTokens(data.accessToken, data.refreshToken, data.user);
+      saveTokens(data.token, data.user);
     },
   });
 
@@ -119,8 +105,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     mutationFn: async (data: {
       email: string;
       password: string;
-      firstName: string;
-      lastName: string;
+      name: string;
     }) => {
       const response = await apiClient.post<AuthResponse>(
         "/auth/register",
@@ -129,7 +114,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       return response.data;
     },
     onSuccess: (data) => {
-      saveTokens(data.accessToken, data.refreshToken, data.user);
+      saveTokens(data.token, data.user);
     },
   });
 
@@ -160,8 +145,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     mutationFn: async (data: {
       inviteToken: string;
       password: string;
-      firstName: string;
-      lastName: string;
+      name: string;
     }) => {
       const response = await apiClient.post<AuthResponse>(
         "/auth/accept-invite",
@@ -170,20 +154,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       return response.data;
     },
     onSuccess: (data) => {
-      saveTokens(data.accessToken, data.refreshToken, data.user);
+      saveTokens(data.token, data.user);
     },
   });
 
   const logout = useCallback(() => {
     localStorage.clear();
-    // localStorage.removeItem("refreshToken");
-    // localStorage.removeItem("user");
-    // localStorage.removeItem("selectedOrganizationId");
-    // localStorage.removeItem("selectedOrganization");
-    // localStorage.removeItem("currentOrganization");
-    // localStorage.removeItem("selectedProjectId");
-    setAccessToken(null);
-    setRefreshToken(null);
+    setToken(null);
     setUser(null);
   }, []);
 
@@ -191,29 +168,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     <AuthContext.Provider
       value={{
         user,
-        accessToken,
-        refreshToken,
+        token,
         isLoading,
-        isAuthenticated: !!user && !!accessToken,
+        isAuthenticated: !!user && !!token,
         login: (email, password) =>
           loginMutation.mutateAsync({ email, password }),
         logout,
-        register: (email, password, firstName, lastName) =>
+        register: (email, password, name) =>
           registerMutation.mutateAsync({
             email,
             password,
-            firstName,
-            lastName,
+            name,
           }),
         forgotPassword: (email) => forgotPasswordMutation.mutateAsync(email),
-        resetPassword: (token, password) =>
-          resetPasswordMutation.mutateAsync({ token, password }),
-        acceptInvite: (inviteToken, password, firstName, lastName) =>
+        resetPassword: (reqToken, password) =>
+          resetPasswordMutation.mutateAsync({ token: reqToken, password }),
+        acceptInvite: (inviteToken, password, name) =>
           acceptInviteMutation.mutateAsync({
             inviteToken,
             password,
-            firstName,
-            lastName,
+            name,
           }),
         getAuthenticatedApiClient,
       }}

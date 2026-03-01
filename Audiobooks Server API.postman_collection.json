@@ -2822,7 +2822,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"My Favorites\",\n    \"description\": \"Best books\",\n    \"isPublic\": true\n}",
+              "raw": "{\n    \"name\": \"Best For Developement\",\n    \"description\": \"Best books\",\n    \"isPublic\": false\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3315,7 +3315,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"audiobookId\": \"699fd166645d44c937ddc854\"\n}",
+              "raw": "{\n    \"audiobookId\": \"69a1f0acdfc7906b182c3468\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3334,7 +3334,8 @@
               ],
               "variable": [
                 {
-                  "key": "id"
+                  "key": "id",
+                  "value": "69a1f762dfc7906b182c34b7"
                 }
               ]
             },
@@ -3658,7 +3659,8 @@
               ],
               "variable": [
                 {
-                  "key": "audiobookId"
+                  "key": "audiobookId",
+                  "value": "69a1f2e5dfc7906b182c3471"
                 }
               ]
             },
@@ -3812,7 +3814,8 @@
               ],
               "variable": [
                 {
-                  "key": "audiobookId"
+                  "key": "audiobookId",
+                  "value": "69a1f2e5dfc7906b182c3471"
                 }
               ]
             },
@@ -3958,7 +3961,8 @@
               ],
               "variable": [
                 {
-                  "key": "audiobookId"
+                  "key": "audiobookId",
+                  "value": "69a1f2e5dfc7906b182c3471"
                 }
               ]
             },
@@ -4130,7 +4134,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"timestamp\": 120,\n    \"note\": \"Interesting quote here\"\n}",
+              "raw": "{\n    \"timestamp\": 360,\n    \"note\": \"Another Interesting quote here\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4149,7 +4153,8 @@
               ],
               "variable": [
                 {
-                  "key": "audiobookId"
+                  "key": "audiobookId",
+                  "value": "69a1f2e5dfc7906b182c3471"
                 }
               ]
             },
@@ -4439,7 +4444,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"note\": \"Updated note\"\n}",
+              "raw": "{\n    \"note\": \"Very Very Good Quote\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4457,7 +4462,8 @@
               ],
               "variable": [
                 {
-                  "key": "id"
+                  "key": "id",
+                  "value": "69a1f652dfc7906b182c34a2"
                 }
               ]
             },
@@ -4645,7 +4651,114 @@
             },
             "description": "Requires Admin Token"
           },
-          "response": []
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/admin/stats",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "stats"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "855"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"357-36y0yfsfEHQ7TrUQKRqdFj5ix2M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 28 Feb 2026 18:06:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"totals\": {\n        \"users\": 3,\n        \"audiobooks\": 4,\n        \"categories\": 5,\n        \"reviews\": 1,\n        \"playlists\": 2,\n        \"listens\": 6\n    },\n    \"newUsersLastWeek\": 3,\n    \"popularAudiobooks\": [\n        {\n            \"_id\": \"69a1f2e5dfc7906b182c3471\",\n            \"title\": \"Good to Great\",\n            \"authorId\": {\n                \"_id\": \"69a1f280dfc7906b182c346e\",\n                \"name\": \"Jim Collins\"\n            },\n            \"averageRating\": 5,\n            \"reviewsCount\": 1,\n            \"likesCount\": 0\n        },\n        {\n            \"_id\": \"69a1f0acdfc7906b182c3468\",\n            \"title\": \"12 Rules for Life\",\n            \"authorId\": {\n                \"_id\": \"69a1ef85dfc7906b182c3464\",\n                \"name\": \"Jordan Peterson\"\n            },\n            \"averageRating\": 0,\n            \"reviewsCount\": 0,\n            \"likesCount\": 0\n        },\n        {\n            \"averageRating\": 0,\n            \"reviewsCount\": 0,\n            \"_id\": \"699fd6a4645d44c937ddc86b\",\n            \"title\": \"Brain Rules\",\n            \"likesCount\": 2,\n            \"authorId\": {\n                \"_id\": \"69a1df10f3c997c663628851\",\n                \"name\": \"Dr. John Medina\"\n            }\n        },\n        {\n            \"averageRating\": 0,\n            \"reviewsCount\": 0,\n            \"_id\": \"699fd56c645d44c937ddc868\",\n            \"title\": \"Better Than Before\",\n            \"likesCount\": 1,\n            \"authorId\": {\n                \"_id\": \"69a1df0df3c997c66362884e\",\n                \"name\": \"Gretchen Rubin\"\n            }\n        }\n    ]\n}"
+            }
+          ]
         }
       ]
     },
@@ -5884,6 +5997,795 @@
             "description": "Requires Admin Token (where applicable)"
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "name": "App Link",
+      "item": [
+        {
+          "name": "Get App Links",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/app-links",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "app-links"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/app-links",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-links"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "304"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"130-L9s04L++Coqe0OjVB9dtnQph4Fo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 05:58:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"data\": [\n        {\n            \"_id\": \"69a3d3e4aab70664e94e3a62\",\n            \"platform\": \"android\",\n            \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-03-01T05:51:32.263Z\",\n            \"updatedAt\": \"2026-03-01T05:51:32.263Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create App Links",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"platform\": \"android\",\r\n    \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\r\n    \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/app-links",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "app-links"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"platform\": \"android\",\r\n    \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\r\n    \"isActive\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/app-links",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-links"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "292"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"124-03SBqEGrGfrU1IepyWkPCxrDvyg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 05:51:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"platform\": \"android\",\n        \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\n        \"isActive\": true,\n        \"_id\": \"69a3d3e4aab70664e94e3a62\",\n        \"createdAt\": \"2026-03-01T05:51:32.263Z\",\n        \"updatedAt\": \"2026-03-01T05:51:32.263Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get App Link by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/app-links/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "app-links",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69a3d3e4aab70664e94e3a62"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/app-links/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-links",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "69a3d3e4aab70664e94e3a62"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "292"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"124-T43wrXw2uC+Ced96wTpMM5jW4I0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 05:58:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69a3d3e4aab70664e94e3a62\",\n        \"platform\": \"android\",\n        \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\n        \"isActive\": true,\n        \"createdAt\": \"2026-03-01T05:51:32.263Z\",\n        \"updatedAt\": \"2026-03-01T05:51:32.263Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update App Link",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"platform\": \"android\",\r\n    \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\r\n    \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/app-links/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "app-links",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69a3d3e4aab70664e94e3a62"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"platform\": \"android\",\r\n    \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\r\n    \"isActive\": false\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/app-links/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-links",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "69a3d3e4aab70664e94e3a62"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "293"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"125-SuDjILJo8OktpHFsWTo1ZaOtv9Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 05:59:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69a3d3e4aab70664e94e3a62\",\n        \"platform\": \"android\",\n        \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\n        \"isActive\": false,\n        \"createdAt\": \"2026-03-01T05:51:32.263Z\",\n        \"updatedAt\": \"2026-03-01T05:59:42.905Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Active App Links",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/app-links/active",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-links",
+                    "active"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "304"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"130-gI+E96HVyr6Ma22vPoEqu/0VoIs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 06:00:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 1,\n    \"data\": [\n        {\n            \"_id\": \"69a3d3e4aab70664e94e3a62\",\n            \"platform\": \"android\",\n            \"url\": \"https://expo.dev/accounts/rahulbhatt3578/projects/BookSync/builds/7adc9b32-0ba4-4dfc-8c9e-afa801b3bd64\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-03-01T05:51:32.263Z\",\n            \"updatedAt\": \"2026-03-01T06:00:01.435Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete App Link",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/app-links/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "app-links",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69a3d3e4aab70664e94e3a62"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/app-links/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-links",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "69a3d3e4aab70664e94e3a62"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-GtxVIWGQwpZajZVBK1/flXPoTV0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 06:05:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"App link deleted successfully\"\n}"
+            }
+          ]
         }
       ]
     }

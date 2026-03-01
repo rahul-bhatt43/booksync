@@ -33,7 +33,7 @@ export const RegisterPage: React.FC = () => {
     setIsLoading(true);
 
     try {
-      await register(email, password, firstName, lastName);
+      await register(email, password, `${firstName} ${lastName}`);
       navigate("/dashboard");
     } catch (err: any) {
       setError(

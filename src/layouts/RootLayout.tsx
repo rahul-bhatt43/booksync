@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function RootLayout() {
   useEffect(() => {
     // Set document title
-    document.title = "OrgIT - Your Sports Event Manager";
+    document.title = "BookSync - Your AudioBook Platform";
 
     // Add preconnect links for fonts
     const preconnect1 = document.createElement("link");

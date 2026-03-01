@@ -1,0 +1,105 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getAudiobooks, getCategories } from "@/services/api";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Loader2, Plus, Edit, BookHeadphones } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+
+export const Audiobooks: React.FC = () => {
+    const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+    const { data: categories } = useQuery({
+        queryKey: ["categories"],
+        queryFn: getCategories,
+    });
+
+    const { data: audiobooks, isLoading } = useQuery({
+        queryKey: ["audiobooks", selectedCategory],
+        queryFn: () => getAudiobooks(selectedCategory !== "all" ? { categoryId: selectedCategory } : {}),
+    });
+
+    return (
+        <div className="p-8 space-y-6">
+            <div className="flex items-center justify-between">
+                <div>
+                    <h1 className="text-3xl font-bold tracking-tight">Audiobooks</h1>
+                    <p className="text-muted-foreground">Manage your audiobook catalog.</p>
+                </div>
+                <Button asChild>
+                    <Link to="/dashboard/audiobooks/create">
+                        <Plus className="mr-2 h-4 w-4" /> Add Audiobook
+                    </Link>
+                </Button>
+            </div>
+
+            <div className="flex items-center gap-4">
+                <div className="w-[200px]">
+                    <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Filter by Category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">All Categories</SelectItem>
+                            {categories?.map((cat) => (
+                                <SelectItem key={cat._id} value={cat._id}>
+                                    {cat.name}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
+
+            {isLoading ? (
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                        <Card key={i} className="relative overflow-hidden flex flex-col">
+                            <Skeleton className="aspect-[2/3] w-full rounded-none" />
+                            <CardHeader className="p-4 pb-2">
+                                <Skeleton className="h-5 w-3/4 mb-1" />
+                                <Skeleton className="h-3 w-1/2" />
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+            ) : (
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {audiobooks?.map((audiobook) => (
+                        <Card key={audiobook._id} className="relative group overflow-hidden flex flex-col transition-all hover:shadow-md">
+                            <div className="aspect-[2/3] relative bg-muted flex items-center justify-center overflow-hidden">
+                                {audiobook.coverImageUrl ? (
+                                    <img src={audiobook.coverImageUrl} alt={audiobook.title} className="object-cover w-full h-full" />
+                                ) : (
+                                    <BookHeadphones className="w-12 h-12 text-muted-foreground/50" />
+                                )}
+                            </div>
+                            <CardHeader className="p-4 pb-2">
+                                <CardTitle className="text-lg line-clamp-1">{audiobook.title}</CardTitle>
+                                <div className="text-sm text-muted-foreground mt-1 line-clamp-1">
+                                    By {typeof audiobook.authorId === 'object' ? audiobook.authorId?.name : "Unknown"}
+                                </div>
+                            </CardHeader>
+                            <CardContent className="flex gap-2 invisible group-hover:visible absolute top-4 right-4 bg-background p-1 rounded-md shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                <Button variant="ghost" size="icon" asChild>
+                                    <Link to={`/dashboard/audiobooks/${audiobook._id}`}>
+                                        <Edit className="h-4 w-4" />
+                                    </Link>
+                                </Button>
+                            </CardContent>
+                        </Card>
+                    ))}
+                    {(!audiobooks || audiobooks.length === 0) && (
+                        <div className="col-span-full py-12 text-center text-muted-foreground border border-dashed rounded-lg">
+                            No audiobooks found.
+                        </div>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Audiobooks;

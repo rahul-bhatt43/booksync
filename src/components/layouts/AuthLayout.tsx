@@ -23,8 +23,8 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
                 </div>
 
                 <div className="relative z-10 flex items-center gap-2 font-medium text-lg">
-                    <img src="/logo.png" alt="OrgIT Logo" className="h-8 w-auto" />
-                    <span className="font-bold tracking-tight">OrgIT</span>
+                    <img src="/logo.png" alt="Book Sync Logo" className="h-8 w-auto" />
+                    <span className="font-bold tracking-tight">BookSync</span>
                 </div>
 
                 <div className="relative z-10 max-w-lg">
@@ -35,16 +35,16 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
                         className="space-y-4"
                     >
                         <p className="text-2xl font-medium leading-relaxed">
-                            &ldquo;OrgIT has completely transformed how we manage our organization structure and tasks. It's intuitive, powerful, and simply beautiful.&rdquo;
+                            &ldquo;BookSync The Best AudioBook Platform.&rdquo;
                         </p>
                         <footer className="text-sm text-zinc-400">
-                            Sofia Davis, CEO at TechFlow
+                            Pankaj, Founder at BookSync
                         </footer>
                     </motion.blockquote>
                 </div>
 
                 <div className="relative z-10 text-sm text-zinc-400">
-                    © {new Date().getFullYear()} OrgIT Inc. All rights reserved.
+                    © {new Date().getFullYear()} BookSync Inc. All rights reserved.
                 </div>
             </div>
 
@@ -59,7 +59,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
                     <div className="flex flex-col space-y-2 text-center">
                         {/* Mobile Logo */}
                         <div className="lg:hidden flex justify-center mb-4">
-                            <img src="/logo.png" alt="OrgIT Logo" className="h-10 w-auto" />
+                            <img src="/logo.png" alt="Book Sync Logo" className="h-10 w-auto" />
                         </div>
                         <h1 className="text-3xl font-semibold tracking-tight">
                             {title}

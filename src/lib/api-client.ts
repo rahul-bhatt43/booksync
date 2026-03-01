@@ -11,12 +11,10 @@ export interface ApiResponse<T = any> {
 
 interface CreateApiClientOptions {
   withAuth?: boolean;
-  withOrganization?: boolean;
 }
 
 export const createApiClient = ({
   withAuth = false,
-  withOrganization = false,
 }: CreateApiClientOptions = {}): AxiosInstance => {
   const client = axios.create({
     baseURL: API_BASE_URL,
@@ -27,16 +25,9 @@ export const createApiClient = ({
 
   client.interceptors.request.use((config) => {
     if (withAuth) {
-      const token = localStorage.getItem("accessToken");
+      const token = localStorage.getItem("token");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
-      }
-    }
-
-    if (withOrganization) {
-      const organizationId = localStorage.getItem("selectedOrganizationId");
-      if (organizationId) {
-        config.headers["X-Organization-Id"] = organizationId;
       }
     }
 
@@ -45,9 +36,7 @@ export const createApiClient = ({
 
   client.interceptors.response.use(
     (response: AxiosResponse<ApiResponse>) => {
-
       if (response.data && response.data.data !== undefined) {
-
         return {
           ...response,
           data: response.data.data,
@@ -56,48 +45,11 @@ export const createApiClient = ({
       return response;
     },
     async (error) => {
-      const originalRequest = error.config;
-
-      // Check if error is 401 or has the specific error message and we haven't retried yet
-      if (
-        (error.response?.status === 401 ||
-          error.response?.data?.message === "Invalid or expired token") &&
-        !originalRequest._retry
-      ) {
-        originalRequest._retry = true;
-
-        try {
-          const refreshToken = localStorage.getItem("refreshToken");
-          if (!refreshToken) {
-            throw new Error("No refresh token available");
-          }
-
-          // specific call as requested by user
-          const response = await axios.post(
-            `${API_BASE_URL}/auth/refresh-token`,
-            { refreshToken }
-          );
-
-          const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
-            response.data.data;
-
-          localStorage.setItem("accessToken", newAccessToken);
-          localStorage.setItem("refreshToken", newRefreshToken);
-
-          // Update the header for the original request
-          originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-
-          // Retry the original request
-          return client(originalRequest);
-        } catch (refreshError) {
-          // If refresh fails, you might want to logout the user or just reject
-          // For now, adhering to instruction to specific logic, but failing effectively means logging out usually
-          localStorage.removeItem("accessToken");
-          localStorage.removeItem("refreshToken");
-          localStorage.removeItem("user");
-          window.location.href = "/auth/login"; // Redirect to login
-          return Promise.reject(refreshError);
-        }
+      if (error.response?.status === 401 || error.response?.data?.message === "Invalid or expired token") {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+        return Promise.reject(error);
       }
 
       if (error.response?.data) {
@@ -115,10 +67,4 @@ export const createApiClient = ({
 export const apiClient = createApiClient();
 
 // Auth only // same below
-export const authApiClient = createApiClient({ withAuth: true, withOrganization: true });
-
-// Auth + org
-export const authOrgApiClient = createApiClient({
-  withAuth: true,
-  withOrganization: true,
-});
+export const authApiClient = createApiClient({ withAuth: true });

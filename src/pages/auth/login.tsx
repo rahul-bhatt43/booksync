@@ -37,10 +37,10 @@ export const LoginPage: React.FC = () => {
   React.useEffect(() => {
     if (!user) return;
 
-    if (user.role === "OWNER") {
-      navigate("/organization-management");
+    if (user.role === "admin") {
+      navigate("/dashboard");
     } else {
-      navigate("/");
+      navigate("/user");
     }
   }, [user, navigate]);
 
@@ -128,7 +128,7 @@ export const LoginPage: React.FC = () => {
           </div>
           <div className="relative flex justify-center text-xs uppercase">
             <span className="bg-background px-2 text-muted-foreground">
-              New to OrgIT?
+              New to BookSync?
             </span>
           </div>
         </div>
