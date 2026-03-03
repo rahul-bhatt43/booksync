@@ -66,6 +66,23 @@ export interface AppLink {
     isActive: boolean;
 }
 
+// Catalog types (public endpoint)
+export interface CatalogAudiobook {
+    _id: string;
+    title: string;
+    authorId: { _id: string; name: string };
+    categoryId: { _id: string; name: string };
+    coverImageUrl?: string;
+    durationInSeconds?: number;
+    averageRating?: number;
+}
+
+// Public catalog — no auth required
+export const getCatalogAudiobooks = async (): Promise<CatalogAudiobook[]> => {
+    const { data } = await apiClient.get("/audiobooks/catalog");
+    return data;
+};
+
 // App Links Service
 export const getActiveAppLinks = async (): Promise<AppLink[]> => {
     // Uses public apiClient, no auth needed
