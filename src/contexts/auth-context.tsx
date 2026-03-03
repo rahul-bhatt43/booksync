@@ -131,10 +131,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const resetPasswordMutation = useMutation({
     mutationFn: async (data: { token: string; password: string }) => {
       const response = await apiClient.post<{ message: string }>(
-        "/auth/reset-password",
+        `/auth/reset-password/${data.token}`,
         {
-          token: data.token,
-          newPassword: data.password,
+          password: data.password,
         }
       );
       return response.data;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useSearchParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,7 @@ import { Loader2, CheckCircle2, Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const ResetPasswordPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
+  const { token } = useParams<{ token: string }>();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -25,8 +25,6 @@ export const ResetPasswordPage: React.FC = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { resetPassword } = useAuth();
   const navigate = useNavigate();
-
-  const token = searchParams.get("token");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +45,7 @@ export const ResetPasswordPage: React.FC = () => {
     try {
       await resetPassword(token, password);
       setSuccess(true);
-      setTimeout(() => navigate("/login"), 3000);
+      setTimeout(() => navigate("/auth/login"), 3000);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to reset password.");
     } finally {
@@ -191,7 +189,7 @@ export const ResetPasswordPage: React.FC = () => {
               </Button>
             </form>
             <div className="mt-4 text-center text-sm">
-              <Link to="/login" className="text-primary hover:underline">
+              <Link to="/auth/login" className="text-primary hover:underline">
                 Back to login
               </Link>
             </div>
