@@ -193,9 +193,7 @@ export const Home: React.FC = () => {
 
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-2.5 group" id="nav-logo">
-                        <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-orange-600 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-105 transition-transform">
-                            <BookHeadphones className="h-5 w-5 text-white" />
-                        </div>
+                        <img src="/logo.png" alt="BookSync Logo" className="h-9 w-auto group-hover:scale-105 transition-transform" />
                         <span className="text-xl font-bold tracking-tight">BookSync</span>
                     </Link>
 
@@ -789,9 +787,7 @@ export const Home: React.FC = () => {
                         {/* Brand */}
                         <div className="col-span-2 md:col-span-1">
                             <div className="flex items-center gap-2.5 mb-4">
-                                <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-orange-600 flex items-center justify-center shadow-lg">
-                                    <BookHeadphones className="h-5 w-5 text-white" />
-                                </div>
+                                <img src="/logo.png" alt="BookSync Logo" className="h-9 w-auto" />
                                 <span className="text-xl font-bold">BookSync</span>
                             </div>
                             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
