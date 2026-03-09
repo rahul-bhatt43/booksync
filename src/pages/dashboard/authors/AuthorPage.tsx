@@ -14,7 +14,7 @@ export const AuthorPage: React.FC = () => {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
     const isEditing = authorId && authorId !== "create";
-
+ 
     const [name, setName] = useState("");
     const [biography, setBiography] = useState("");
 
